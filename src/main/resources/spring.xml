@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student" class="com.ioc.entity.Student">
+        <property name="id" value="1"/>
+        <property name="name" value="张三"/>
+        <property name="age" value="22"/>
+        <property name="addresses">
+            <list>
+                <ref bean="address"/>
+                <ref bean="address2"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="student2" class="com.ioc.entity.Student">
+        <property name="name" value="黎明"/>
+        <property name="id" value="1"/>
+        <property name="addresses">
+            <list>
+                <ref bean="address"/>
+                <ref bean="address2"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="stu2" class="com.ioc.entity.Student" parent="student2">
+        <property name="name" value="王建林"/>
+    </bean>
+    <bean id="address" class="com.ioc.entity.Address">
+        <property name="name" value="科技路"/>
+        <property name="id" value="1"/>
+    </bean>
+    <bean id="address2" class="com.ioc.entity.Address">
+        <property name="name" value="紫金路"/>
+        <property name="id" value="2"/>
+    </bean>
+    <bean id="user" class="com.ioc.entity.User" parent="address">
+
+    </bean>
+
+</beans>
